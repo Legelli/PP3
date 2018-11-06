@@ -94,7 +94,7 @@ Si realizza, per ottimizzare la misura dello \emph{slew rate}, un \emph{emitter 
 ;\end{circuitikz}
 \end{center}
 
-Si invia all'ingresso non invertente dell'op-amp un segnale rettangolare (onda quadra) di frequenza \SI{111 \pm 111}{Hz} e ampiezza variabile, oscillante tra $0$ e $V_i$. Osservando sull'oscilloscopio il segnale in uscita, si osserva che l'amplificazione è effettivamente circa unitaria (si ha $A_v = \SI{111 \pm 111}{}$, data dal valor medio), ma la risposta presenta un tempo di salita, ovvero non segue istantaneamente l'ingresso. Selezionando la regione crescente lineare e misurandone la pendenza mediante i cursori, si ricava in ciascun caso la \emph{slew rate} come
+Si invia all'ingresso non invertente dell'op-amp un segnale rettangolare (onda quadra) di frequenza \SI{5.4 \pm 0.2}{kHz} e ampiezza variabile, oscillante tra $0$ e $V_i$. Osservando sull'oscilloscopio il segnale in uscita, si osserva che l'amplificazione è effettivamente circa unitaria (si ha $A_v = \SI{0.99 \pm 0.03}{}$, con incertezza data dalla misura con l'oscilloscopio), ma la risposta presenta un tempo di salita, ovvero non segue istantaneamente l'ingresso. Selezionando la regione crescente lineare e misurandone la pendenza mediante i cursori, si ricava in ciascun caso la \emph{slew rate} come
 \[
 S = \frac{\Delta V}{\Delta t} = \frac{V_o}{\Delta t}.
 \]
@@ -104,7 +104,7 @@ Si riportano in tabella~\ref{tab:slewrate} i valori di $V_i$, di $\Delta V$, di 
 \captionof{table}{Valori misurati per la stima dello \emph{slew rate}}
 \label{tab:slewrate}
 \begin{tabular}{c|c|c|c}
- $V_i$ [\SI{}{V}] & $\Delta V$ [\SI{}{V}] & $\Delta t$ [\SI{}{s}] & $S$ [\SI{}{V/s}] \\
+ $V_i$ [\SI{}{V}] & $\Delta V$ [\SI{}{V}] & $\Delta t$ [\SI{}{\micro s}] & $S$ [\SI{}{V/\micro s}] \\
 \hline
 \hline
 \end{tabular}
@@ -112,9 +112,9 @@ Si riportano in tabella~\ref{tab:slewrate} i valori di $V_i$, di $\Delta V$, di 
 
 La stima dello \emph{slew rate}, data dalla media dei valori misurati con errore associato la deviazione standard, risulta essere
 \[
-S = \SI{111 \pm 111}{V / s};
+S = \SI{0.294 \pm 0.008}{V / \micro s};
 \]
-tale valore risulta essere compatibile con quello dichiarato dal costruttore, di \SI{0.5}{V / \micro s}. A titolo esemplificativo, si riporta in figura~\ref{fig:slewrate} un'istantanea dell'oscilloscopio, dalla quale risulta visibile il tempo finito impiegato dalla risposta a raggiungere il valore a regime.
+si confronta tale valore con quello dichiarato dal costruttore, di \SI{0.5}{V / \micro s}, che tuttavia è stato calcolato mediante un circuito diverso da quello qui utilizzato. A titolo esemplificativo, si riporta in figura~\ref{fig:slewrate} un'istantanea dell'oscilloscopio, dalla quale risulta visibile il tempo finito impiegato dalla risposta a raggiungere il valore a regime.
 
 %\begin{figure}[H]
 %	\begin{center}
@@ -124,14 +124,14 @@ tale valore risulta essere compatibile con quello dichiarato dal costruttore, di
 %	\end{center}
 %\end{figure}
 
-Si ripete quindi la misura inviando all'ingresso non invertente un segnale sinusoidale del tipo $V_i = V_p \sin(\omega t)$, di frequenza \SI{111 \pm 111}{Hz} e ampiezza picco-picco $V_p = \SI{111 \pm 111}{V}$. Si stima anche in questo caso lo \emph{slew rate} 
-%COMPLETARE: BISOGNA OSSERVARE IL GRAFICO
-
-
-Poiché la banda passante è in questo caso di \SI{1}{MHz}, come dichiarato dal costruttore, e l'amplificazione è unitaria, si ha che è verificata la richiesta di lavorare sotto la frequenza di taglio, e di rispettare la disuguaglianza
+Si ripete quindi la misura inviando all'ingresso non invertente un segnale sinusoidale del tipo $V_i = V_p \sin(\omega t)$, di frequenza variabile e ampiezza picco-picco $V_p = \SI{7.1 \pm 0.2}{V}$. Si stima anche in questo caso lo \emph{slew rate} variando la frequenza finché non si veda un segnale in uscita distorto, a $f_D = \SI{13.2 \pm 0.4}{kHz}$; poiché per evitare di vedere un segnale distorto si dovrebbe rispettare la relazione
 \[
-A_v V_p \omega \leq S.
-\]  
+S \geq A_v V_p 2\pi f,
+\]   
+si ha che, dalla frequenza a cui si ha il passaggio alla distorsione, si ricava $S = \SI{0.59 \pm 0.02}{V / \micro s}$. Questo valore risulta essere poco accurato (molto meno di quanto lo sia la stima precedente), proprio perché la stima di dove il segnale cominci ad apparire distorto è soggettiva, e non riproducibile. 
+
+
+Poiché la banda passante è in questo caso di \SI{1}{MHz}, come dichiarato dal costruttore, e l'amplificazione è unitaria, si ha che è verificata la richiesta di lavorare sotto la frequenza di taglio. 
 
 %==================================================
 %    MISURA DEL PRODOTTO GUADAGNO-BANDA PASSANTE
@@ -163,7 +163,7 @@ V_s \leq \frac{S}{2\pi f A} \simeq \SI{80}{mV},
 \]
 utilizzando i dati forniti dal costruttore, al fine di evitare un segnale distorto in $V_o$. Sui canali \texttt{CH1} e \texttt{CH2} dell'oscilloscopio vengono verificati rispettivamente il segnale di ingresso e di uscita, e si verifica che quest'ultimo è sfasato di circa $\pi$ rispetto al primo, come previsto dalla dinamica dell'amplificatore invertente.
 
-Si riportano nella tabella~\ref{tab:gainbandwidth} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori delle resistenze $R$ e $R'$ con le quali viene realizzata la rete di reazione. Tali resistenze sono misurate con il ponte, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB}, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}.
+Si riportano nella tabella~\ref{tab:gainbandwidth} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori delle resistenze $R$ e $R'$ con le quali viene realizzata la rete di reazione. Tali resistenze sono misurate con il multimetro, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB}, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}.
 
 %\begin{figure}[H]
 %	\begin{center}
@@ -213,18 +213,28 @@ Si realizza un circuito derivatore con opportuna scelta delle componenti $R_1$ e
 L'OP-AMP è alimentato ancora con una tensione di $\pm$ \SI{12}{V}; i valori delle resistenze e della capacità sono
 \[
 \begin{aligned}
-R_1 &= \SI{111 \pm 111}{k\ohm} \\
-R_2 &= \SI{111 \pm 111}{k\ohm} \\
-C &= \SI{111 \pm 111}{F},
+R_1 &= \SI{99.2 \pm 0.5}{k\ohm} \\
+R_2 &= \SI{2.17 \pm 0.01}{k\ohm} \\
+C &= \SI{1.005 \pm 0.005}{\nano F},
 \end{aligned}
 \]
-misurati con il multimetro e con il ponte. Si fornisce all'ingresso invertente dell'amplificatore un'onda quadra di ampiezza $V_s$ e frequenza $f$, e si osserva al \texttt{CH2} dell'oscilloscopio una $V_o$ impulsiva, localizzata dove si ha il passaggio dell'onda dalla tensione massima a quella minima; si riporta in figura~\ref{fig:derivatoreOndaquadra} un'istantanea dell'oscilloscopio per questa configurazione.
+misurati con il multimetro e con il ponte. Si fornisce all'ingresso invertente dell'amplificatore un'onda quadra di ampiezza picco-picco $V_s = \SI{40 \pm 1.2}{mV}$ e frequenza $f = \SI{1.97 \pm 0.06}{kHz}$, e si osserva al \texttt{CH2} dell'oscilloscopio una $V_o$ impulsiva, localizzata dove si ha il passaggio dell'onda dalla tensione massima a quella minima; si riporta in figura~\ref{fig:derivatoreOndaquadra} un'istantanea dell'oscilloscopio per questa configurazione.
 
 %\begin{figure}[H]
 %	\begin{center}
 %	\includegraphics[width=\linewidth]{}
 %	\caption{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
 %	\label{fig:derivatoreOndaquadra}
+%	\end{center}
+%\end{figure}
+
+Si invia inoltre come segnale in ingresso un'onda triangolare di frequenza \SI{1.90 \pm 0.06}{kHz} di ampiezza picco-picco \SI{66 \pm 2}{mV}. Si osserva in uscita (e si riporta un'istantanea dell'oscilloscopio in figura~\ref{fig:derivatoreTriangolare}) un'onda quadra (che presenta tuttavia degli impulsi nei punti corrispondenti ai vertici dell'onda triangolare) di ampiezza \SI{46.4 \pm 1.3}{mV}. Si misura con i cursori la pendenza dei tratti in salita e in discesa dell'onda triangolare, $\Delta V / \Delta t$ ottenendo rispettivamente \SI{244 \pm 10}{V/s} e \SI{-281 \pm 11}{V/s}. 
+
+%\begin{figure}[H]
+%	\begin{center}
+%	\includegraphics[width=\linewidth]{}
+%	\caption{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
+%	\label{fig:derivatoreTriangolare}
 %	\end{center}
 %\end{figure}
 
@@ -241,7 +251,7 @@ si confronta tale pendenza con il valore previsto di \SI{20}{dB/dec} e l'interce
 %	\end{center}
 %\end{figure}
 
-
+Si osserva che il passaggio dalla regione crescente a quella decrescente è molto piccato: questo è conseguente alla scelta di $R_2$ molto minore di $R_1$, che permette di approssimare meglio il circuito derivatore al caso ideale, per frequenze inferiori a quella di taglio. 
 
 
 
@@ -251,8 +261,8 @@ si confronta tale pendenza con il valore previsto di \SI{20}{dB/dec} e l'interce
 %==================================================
 \section{Appendice}
 
-\begin{center}
 \begin{table}[h]
+\begin{center}
 \captionof{table}{Misure per la stima del prodotto guadagno per banda passante}
 \label{tab:gainbandwidth}
 \begin{tabular}{c|c|c|c}
@@ -260,11 +270,12 @@ $f$ [\SI{}{kHz}] & $V_s$ [\SI{}{mV}] & $V_o$ [\SI{}{V}] & $A_v$ \\
 \hline
 \hline
 \end{tabular}
-\end{table}
 \end{center}
+\end{table}
 
-\begin{center}
+
 \begin{table}[h]
+\begin{center}
 \captionof{table}{Misure per il circuito derivatore}
 \label{tab:derivatore}
 \begin{tabular}{c|c|c|c}
@@ -272,8 +283,9 @@ $f$ [\SI{}{kHz}] & $V_s$ [\SI{}{mV}] & $V_o$ [\SI{}{V}] & $A_v$ \\
 \hline
 \hline
 \end{tabular}
-\end{table}
 \end{center}
+\end{table}
+
 
 
 
