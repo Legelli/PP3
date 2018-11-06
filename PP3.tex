@@ -182,24 +182,24 @@ Si riportano nella tabelle~\ref{tab:gainbandwidthR1}, \ref{tab:gainbandwidthR2},
 Per le differenti configurazioni della rete di reazione, si ottengono i valori riportati in tabella~\ref{tab:riepilogoGainbandwidth}.
 
 \begin{center}
+\begin{table*}
 \captionof{table}{Prodotto guadagno per banda passante per le diverse reti di reazione}
 \label{tab:riepilogoGainbandwidth}
-\begin{tabular}{c|c|c|c}
-\hline
-   $V_i$ [V] &   $\Delta t$ [$\mu s$] &   $\Delta V$ [V] &   $S$ [V/$\mu s$] \\
-\hline
-        6.04 &                 19.4 &             5.84 &             0.301 \\
-        3.96 &                 13.4 &             3.74 &             0.279 \\
-        5.00 &                 16.6 &             4.88 &             0.294 \\
-        7.20 &                 24.4 &             7.36 &             0.302 \\
-        8.72 &                 30.4 &             8.88 &             0.292 \\
-\hline
+\begin{tabular}{c|c|c|c|c}
+ $R$ [\SI{}{k\ohm}] & $R'$ [\SI{}{k\ohm}] & Guadagno ($A_v$) & Banda  [\SI{}{kHz}] & Guadagno $\times$ Banda  [\SI{}{kHz}] \\
+\hline 
+$1.005 \pm 0.005$ & $99.3 \pm 0.5$ & $96 \pm 3$       & $11.1 \pm 1.0$			& $1065 \pm 102$ \\
+$2.17 \pm 0.01$ & $99.3 \pm 0.5$   & $45.7 \pm 1.4$   & $21.3 \pm 1.8$			& $973 \pm 86$ \\
+$3.82 \pm 0.02$ & $99.3 \pm 0.5$   & $25.3 \pm 0.8$   & $38.5 \pm 4.8$			& $974 \pm 125$ \\
+$9.88 \pm 0.05$ & $99.3 \pm 0.5$   & $9.9 \pm 0.3$    & $96 \pm 19$				& $950 \pm 190$ \\
+\hline 
 \end{tabular}
+\end{table*}
 \end{center}
 
 Si ottiene una stima conclusiva del prodotto guadagno per banda passante, data dalla media pesata delle differenti misurazioni, di 
 \[
-\text{GBW product} = \SI{111 \pm 111}{kHz},
+\text{GBW product} = \SI{999 \pm 56}{kHz},
 \]
 compatibile con il valore atteso di \SI{1}{MHz} riportato nel datasheet.
 
@@ -276,7 +276,7 @@ Si osserva che il passaggio dalla regione crescente a quella decrescente è molto
 
 \begin{table}[H]
 \begin{center}
-\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R' = \SI{1.005 \pm 0.005}{\kilo \Omega}$}
+\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R = \SI{1.005 \pm 0.005}{\kilo \Omega}$}
 \label{tab:gainbandwidthR1}
 \begin{tabular}{c|c|c|c}
 \hline
@@ -304,7 +304,7 @@ Si osserva che il passaggio dalla regione crescente a quella decrescente è molto
 
 \begin{table}[H]
 \begin{center}
-\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R' = \SI{2.17 \pm 0.01}{\kilo \Omega}$}
+\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R = \SI{2.17 \pm 0.01}{\kilo \Omega}$}
 \label{tab:gainbandwidthR2}
 \begin{tabular}{c|c|c|c}
 \hline
@@ -331,7 +331,7 @@ Si osserva che il passaggio dalla regione crescente a quella decrescente è molto
 
 \begin{table}[H]
 \begin{center}
-\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R' = \SI{3.82\pm 0.02}{\kilo \Omega}$}
+\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R = \SI{3.82\pm 0.02}{\kilo \Omega}$}
 \label{tab:gainbandwidthR3}
 \begin{tabular}{c|c|c|c}
 \hline
@@ -357,7 +357,7 @@ Si osserva che il passaggio dalla regione crescente a quella decrescente è molto
 
 \begin{table}[H]
 \begin{center}
-\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R' = \SI{9.88 \pm 0.05}{\kilo \Omega}$}
+\captionof{table}{Misure per la stima del prodotto guadagno per banda passante con resistenza $R = \SI{9.88 \pm 0.05}{\kilo \Omega}$}
 \label{tab:gainbandwidthR4}
 \begin{tabular}{c|c|c|c}
 \hline
@@ -419,8 +419,6 @@ Si osserva che il passaggio dalla regione crescente a quella decrescente è molto
 \end{tabular}
 \end{center}
 \end{table}
-
-
 
 
 
