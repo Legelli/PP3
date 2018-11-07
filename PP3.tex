@@ -169,7 +169,7 @@ V_s \leq \frac{S}{2\pi f A} \simeq \SI{80}{mV},
 \]
 utilizzando i dati forniti dal costruttore, al fine di evitare un segnale distorto in $V_o$. Sui canali \texttt{CH1} e \texttt{CH2} dell'oscilloscopio vengono verificati rispettivamente il segnale di ingresso e di uscita, e si verifica che quest'ultimo è sfasato di circa $\pi$ rispetto al primo, come previsto dalla dinamica dell'amplificatore invertente.
 
-Si riportano nella tabelle~\ref{tab:gainbandwidthR1}, \ref{tab:gainbandwidthR2}, \ref{tab:gainbandwidthR3}, \ref{tab:gainbandwidthR4} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori delle resistenze $R$ e $R'$ con le quali viene realizzata la rete di reazione. Tali resistenze sono misurate con il multimetro, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB}, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}.
+Si riportano nella tabelle~\ref{tab:gainbandwidthR1}, \ref{tab:gainbandwidthR2}, \ref{tab:gainbandwidthR3}, \ref{tab:gainbandwidthR4} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori della resistenza $R$ con le quali viene realizzata la rete di reazione. La resistenza $R'$ è fissata, $R' = \SI{99.3 \pm 0.5}{k\ohm}$. Tali resistenze sono misurate con il multimetro, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB}, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}: essa infatti ha un valore medio di \SI{-19.7 \pm 0.5}{dB/dec}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -230,31 +230,31 @@ C &= \SI{1.005 \pm 0.005}{\nano F},
 \]
 misurati con il multimetro e con il ponte; si ha dunque $R_1 C = \SI{9.97 \pm 0.05 e-5}{s}$. Si fornisce all'ingresso invertente dell'amplificatore un'onda quadra di ampiezza picco-picco $V_s = \SI{40 \pm 1.2}{mV}$ e frequenza $f = \SI{1.97 \pm 0.06}{kHz}$, e si osserva al \texttt{CH2} dell'oscilloscopio una $V_o$ impulsiva, localizzata dove si ha il passaggio dell'onda dalla tensione massima a quella minima; si riporta in figura~\ref{fig:derivatoreOndaquadra} un'istantanea dell'oscilloscopio per questa configurazione.
 
-\begin{figure}[H]
-	\begin{center}
+\begin{center}
+\begin{Figure}
 	\includegraphics[width=\linewidth]{delta.png}
-	\caption{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
+	\captionof{figure}{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
 	\label{fig:derivatoreOndaquadra}
-	\end{center}
-\end{figure}
-
-\begin{figure}[H]
-	\begin{center}
+\end{Figure}
+\end{center}
+\begin{center}
+\begin{Figure}
 	\includegraphics[width=\linewidth]{triangolare.png}
-	\caption{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
+	\captionof{figure}{Screenshot dell'oscilloscopio per l'onda quadra in ingresso al derivatore}
 	\label{fig:derivatoreTriangolare}
-	\end{center}
-\end{figure}
-
-Si invia inoltre come segnale in ingresso un'onda triangolare di frequenza \SI{1.90 \pm 0.06}{kHz} di ampiezza picco-picco \SI{66 \pm 2}{mV}. Si osserva in uscita (e si riporta un'istantanea dell'oscilloscopio in figura~\ref{fig:derivatoreTriangolare}) un'onda quadra (che presenta tuttavia degli impulsi nei punti corrispondenti ai vertici dell'onda triangolare) di ampiezza \SI{46.4 \pm 1.3}{mV}, dunque semiampiezza $V_o = \SI{23.2 \pm 0.7}{mV}$. Si misura con i cursori la pendenza dei tratti in salita e in discesa dell'onda triangolare, $\Delta V / \Delta t$ ottenendo rispettivamente \SI{0.244 \pm 10}{mV/\micro s} e \SI{-0.281 \pm 11}{mV/\micro s}. Poiché per il derivatore si ha $V_o = -R_1 C dV_s/dt$, e il segnale in ingresso è $V_s = \alpha t$ per i tratti in salita e $V_s = \alpha' t$ per quelli in discesa, si ottiene una stima di $R_1 C$ da $V_o / \alpha$, che vale rispettivamente \SI{9.5 \pm 0.4 e-5}{s} e \SI{8.26 \pm 0.4 e-5}{s}, in accordo con quanto previsto dai componenti usati.
+\end{Figure}
+\end{center}
 
 
+Si invia inoltre come segnale in ingresso un'onda triangolare di frequenza \SI{1.90 \pm 0.06}{kHz} di ampiezza picco-picco \SI{66 \pm 2}{mV}. Si osserva in uscita (e si riporta un'istantanea dell'oscilloscopio in figura~\ref{fig:derivatoreTriangolare}) un'onda quadra (che presenta tuttavia degli impulsi nei punti corrispondenti ai vertici dell'onda triangolare) di ampiezza \SI{46.4 \pm 1.3}{mV}, dunque semiampiezza $V_o = \SI{23.2 \pm 0.7}{mV}$. Si misura con i cursori la pendenza dei tratti in salita e in discesa dell'onda triangolare, $\Delta V / \Delta t$ ottenendo rispettivamente \SI{0.244 \pm 0.010}{mV/\micro s} e \SI{-0.281 \pm 0.011}{mV/\micro s}. Poiché per il derivatore si ha $V_o = -R_1 C dV_s/dt$, e il segnale in ingresso è $V_s = \alpha t$ per i tratti in salita e $V_s = \alpha' t$ per quelli in discesa, si ottiene una stima di $R_1 C$ da $V_o / \alpha$, che vale rispettivamente \SI{9.5 \pm 0.4 e-5}{s} e \SI{8.26 \pm 0.4 e-5}{s}, in accordo con quanto previsto dai componenti usati.
 
-Si studia quindi la risposta in frequenza, inviando un segnale sinusoidale di ampiezza picco-picco $V_s$ e frequenza $f$, e misurando con l'oscilloscopio l'ampiezza $V_o$, quindi si ricava l'amplificazione $A_v = V_o / V_s$. Si riportano nella tabella~\ref{tab:derivatore} in appendice le diverse misure, e nella figura~\ref{fig:bodeDerivatore} il diagramma di Bode dei dati sperimentali. Si osserva, come previsto, che il comportamento del derivatore reale si discosta da quello ideale a causa del taglio dell'amplificazione alle alte frequenze. Si stima la discesa oltre la frequenza di taglio mediante interpolazione lineare, ottenendo una pendenza di \SI{111 \pm 111}{dB/dec}, in accordo con il valore teorico di \SI{-20}{dB/dec}. Per la regione crescente si stima una pendenza di \SI{111 \pm 111}{dB/dec}; poiché in questa si ha che il derivatore realizzato con l'OP-AMP segue l'andamento ideale
+
+
+Si studia quindi la risposta in frequenza, inviando un segnale sinusoidale di ampiezza picco-picco $V_s$ e frequenza $f$, e misurando con l'oscilloscopio l'ampiezza $V_o$, quindi si ricava l'amplificazione $A_v = V_o / V_s$. Si riportano nella tabella~\ref{tab:derivatore} in appendice le diverse misure, e nella figura~\ref{fig:bodeDerivatore} il diagramma di Bode dei dati sperimentali. Si osserva, come previsto, che il comportamento del derivatore reale si discosta da quello ideale a causa del taglio dell'amplificazione alle alte frequenze. Si stima la discesa oltre la frequenza di taglio mediante interpolazione lineare, ottenendo una pendenza di \SI{-23.7 \pm 0.7}{dB/dec}, in accordo con il valore teorico di \SI{-20}{dB/dec}. Per la regione crescente si stima una pendenza di \SI{23.5 \pm 0.7}{dB/dec}; poiché in questa si ha che il derivatore realizzato con l'OP-AMP segue l'andamento ideale
 \[
 \abs{A_v} = \frac{\abs{V_o}}{\abs{V_s}} = R_1 C \omega, 
 \]
-si confronta tale pendenza con il valore previsto di \SI{20}{dB/dec} e l'intercetta con l'asse delle ascisse, che dal diagramma di Bode è in corrispondenza di $f_0 = \SI{111 \pm 111}{Hz}$, con il valore previsto di $f_0 = 1/ (2\pi R_1 C)$.
+si confronta tale pendenza con il valore previsto, che è anche qui \SI{20}{dB/dec}.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width=\linewidth]{derivatore.pdf}
