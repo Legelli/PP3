@@ -53,7 +53,7 @@ stepnumber=2, numbersep=5pt, frame=shadowbox,  showstringspaces=false, #1}}{}
 
 \title{\textsc{\textbf{Esercitazione 3}: Amplificatore operazionale 1}}
 \author{\small{G. Galbato Muscio} \and \small{L. Gravina} \and \small{L. Graziotto}}
-\date{\today}
+\date{6 Novembre 2018}
 
 \begin{document}
 	\begin{figure}
@@ -169,7 +169,7 @@ V_s \leq \frac{S}{2\pi f A} \simeq \SI{80}{mV},
 \]
 utilizzando i dati forniti dal costruttore, al fine di evitare un segnale distorto in $V_o$. Sui canali \texttt{CH1} e \texttt{CH2} dell'oscilloscopio vengono verificati rispettivamente il segnale di ingresso e di uscita, e si verifica che quest'ultimo è sfasato di circa $\pi$ rispetto al primo, come previsto dalla dinamica dell'amplificatore invertente.
 
-Si riportano nella tabelle~\ref{tab:gainbandwidthR1}, \ref{tab:gainbandwidthR2}, \ref{tab:gainbandwidthR3}, \ref{tab:gainbandwidthR4} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori della resistenza $R$ con le quali viene realizzata la rete di reazione. La resistenza $R'$ è fissata, $R' = \SI{99.3 \pm 0.5}{k\ohm}$. Tali resistenze sono misurate con il multimetro, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB}, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}: essa infatti ha un valore medio di \SI{-19.7 \pm 0.5}{dB/dec}.
+Si riportano nella tabelle~\ref{tab:gainbandwidthR1}, \ref{tab:gainbandwidthR2}, \ref{tab:gainbandwidthR3}, \ref{tab:gainbandwidthR4} in appendice i valori di $V_s$, $V_o$, dell'amplificazione $A_v = V_o / V_s$ e della frequenza a cui viene effettuata la misura $f$ per i diversi valori della resistenza $R$ con le quali viene realizzata la rete di reazione. La resistenza $R'$ è fissata, $R' = \SI{99.3 \pm 0.5}{k\ohm}$. Tali resistenze sono misurate con il multimetro, mentre le tensioni e le frequenze con l'oscilloscopio. In figura~\ref{fig:bodeGainbandwidth} è riportato il diagramma di Bode con i punti sperimentali; da questo si ricava il guadagno come media dei valori dell'amplificazione nella regione dove essa è costante, con associata l'incertezza data dall'oscilloscopio (dell'ordine del $3\%$), che risulta dominante rispetto a quella statistica, mentre la banda passante è stimata dall'ascissa del punto di intersezione tra la retta che rappresenta la discesa dell'amplificazione dopo la frequenza di taglio (ottenuta interpolando linearmente i dati) con la retta orizzontale relativa ad un'amplificazione di \SI{-3}{dB} rispetto al guadagno, che rappresenta appunto il valore di $A_v$ alla frequenza di taglio. Si verifica inoltre che la pendenza della retta decrescente sia compatibile con il valore di \SI{-20}{dB/dec}: essa infatti ha un valore medio di \SI{-19.7 \pm 0.5}{dB/dec}.
 
 \begin{figure}[H]
 	\begin{center}
